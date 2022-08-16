@@ -1,4 +1,4 @@
-// ================= Bank Hisab ================
+/* // ================= Bank Hisab ================
 
 const deposit = document.getElementById('deposit');
 const withdraw = document.getElementById('withdraw');
@@ -30,3 +30,4 @@ withButton.addEventListener('click', function () {
     }
     withInput.value = '';
 });
+*/
