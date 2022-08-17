@@ -1,13 +1,12 @@
 // 1. Validation and prevention from typing wrong inputs (Now they can't type except number values)
 const depoWith = document.getElementsByClassName('depo-with');
 
-for(const element of depoWith) {
-    element.addEventListener('input', function(){
-        const fullValue = element.value;
-        const lastChar = fullValue.length - 1;
-
-        if(isNaN(fullValue[lastChar])){
-            element.value = fullValue.slice(0, lastChar);
+for (const element of depoWith) {
+    element.addEventListener('input', function () {
+        for (let i = 0; i < element.value.length; i++) {
+            if (isNaN(element.value[i])) {
+                element.value = element.value.slice(0, i);
+            }
         }
     })
 }
@@ -19,7 +18,13 @@ function getValue(idName) {
     const theElement = document.getElementById(idName);
     const theValue = parseFloat(theElement.value);
     theElement.value = '';
-    return theValue;
+    
+    if(!isNaN(theValue)) {
+        return theValue;
+    }
+    else {
+        return 0;
+    }
 }
 
 // function to get the number from string innerText
